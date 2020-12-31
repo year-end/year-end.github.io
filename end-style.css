@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  width: 100%; 
+  min-height: 100vh;
+  background-color: rgb(30, 30, 30);
+  color: #d5d5d5;
+  padding: 0 1rem;
+}
+
+.dabba {
+  min-height: 100vh; 
+  position: relative; 
+  overflow: scroll; 
+  overflow-x: hidden; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section{
+  margin: 0 1rem;
+  position: relative;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  display: none;
+}
+.on {
+  display: block;
+}
+
+.h1 {
+  font-size: 1.5rem; 
+  margin: 1rem; 
+  color: #64b6f0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  opacity: 0;
+}
+
+.h1 span {
+  margin: 0 0.2rem;
+} 
+
+.h2 {
+  font-size: 1.2rem; 
+  margin: 0 0 0 0; 
+  color: #7ae582;
+}
+
+p, .text {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  word-spacing: 0.3rem;
+  margin: 1rem 0;
+}
+
+.item {
+  font-weight: bold;
+  color: white;
+}
+
+.em {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.handwriting {
+  margin: 1rem auto;
+  width: 50vw;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  width: 30%;
+}
+.bday {margin-bottom: 1rem; display: flex; justify-content: center;}
+
+/*Animations*/
+/**/
+/*Animation Definations*/
+@keyframes bday {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+@keyframes h1 {
+  0% {
+    transform: rotateX(100deg) translateY(-200px) scale(0.2);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+}
+
+@keyframes h1-exclaim {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotateX(90deg) rotateZ(90deg) scale(10.0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes h2 {
+  0% {
+    transform: rotateY(120deg) rotateX(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes paragraph {
+  0% {
+    transform: translateY(50px) scale(1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes handwriting {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes wish {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  to {opacity: 1;}
+}
+/*Animation Call*/
+.h1 {
+  animation: h1 1.5s 1s forwards;
+}
+.small {opacity: 0; font-size: 0.7rem; line-height: 0rem; color: #aaa; animation: paragraph 1s ease 17s forwards;}
+
+.h1 span:nth-of-type(4),
+.h1 span:nth-of-type(5) {
+  opacity: 0;
+  animation: h1-exclaim 1.0s ease-in 3s forwards;
+}
+
+.h2 {
+  opacity: 0;
+  animation: h2 4s ease 4.5s forwards;
+}
+
+p, .text {
+  opacity: 0;
+  animation: paragraph 2s ease forwards;
+}
+.text-1 {animation-delay: 11s;}
+.text-2 {animation-delay: 23s;}
+p:nth-of-type(1) {animation-delay: 1s;}
+#X {animation-delay: 18s;}
+#Y {animation-delay: 22s;}
+p:nth-of-type(3) {animation-delay: 30s;}
+.bday span {
+  margin: 0 0 0 0.5rem;
+  transform: rotateZ(-50deg) rotateX(90deg) scale(1.2);
+  animation: bday 2s forwards;
+  opacity: 0;
+}
+.bday span:nth-of-type(1) {
+  animation-delay: 1s;
+  color: #7ae582;
+}
+.bday span:nth-of-type(2) {
+  animation-delay: 1.5s;
+  color: #7ae582;
+}
+.bday span:nth-of-type(3) {
+  animation-delay: 2s;
+  color: #7ae582;
+}
+.bday span:nth-of-type(4) {
+  animation-delay: 2.5s;
+  color: #7ae582;
+}
+
+.wish {
+  opacity: 0;
+  overflow: hidden;
+  animation: wish 2s forwards 5s;
+}
+
+.always {
+  stroke-dasharray: 470;
+  stroke-dashoffset: 470;
+  animation: handwriting  9s linear 9s forwards;
+}
+#nextBtn {
+  opacity: 0;
+  animation: fade 2s forwards 27s;
+}
+#prevBtn {
+  opacity: 0;
+  animation: fade 2s forwards 30s;
+}
+/**/
+/*Background*/
+.area{
+  background: rgb(30, 30, 30);  
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+
+
+.circles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.circles li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(100,100,100, 0.2);
+  animation: animate 10s linear infinite;
+  bottom: -150px;
+}
+
+.circles li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate {
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 20%;
+  }
+  100%{
+    transform: translateY(-800px) rotate(720deg) scale(0.2);
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+}
+
+#T {animation-duration: 10.5s;}
+#H {animation-duration: 8.4s;}
+#A {animation-duration: 10.125s;}
+#N {animation-duration: 9.75s;}
+#K {animation-duration: 7.5s;}
+#S {animation-duration: 12s;}
+#Ex {animation-duration: 14s;}
+
+#T,#H,#A,#N,#K,#S,#Ex {
+  animation-delay: 8s;
+  animation-name: thanks;
+  animation-fill-mode: forwards;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+}
+@keyframes thanks {
+  to {stroke-dashoffset: 0;}
+}
+
+.thanks svg {
+  width: 40vw;
+  margin: 0.5rem 0 1rem 0;
+}
+.handwriting {
+  position: relative;
+  margin-bottom: 50px;
+}
+.arrow {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+}
+
+.arrow svg {
+  width: 50px;
+  margin: 0 auto;
+}
+svg .draw-arrow {
+  stroke-width: 5;
+  stroke: pink;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation-duration: 3s;
+  animation-delay: 21s;
+  animation-name: draw;
+  animation-iteration-count: infinite;
+}
+svg .draw-arrow.tail-1 {
+  animation-delay: 21.5s;
+}
+svg .draw-arrow.tail-2 {
+  animation-delay: 21.5s;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
